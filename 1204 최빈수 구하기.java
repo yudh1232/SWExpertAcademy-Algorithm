@@ -7,7 +7,6 @@ import java.util.StringTokenizer;
 public class Solution {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
-		System.setIn(new FileInputStream("input1204.txt"));
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 		int TC = Integer.parseInt(in.readLine());
 		
