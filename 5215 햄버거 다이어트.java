@@ -74,7 +74,7 @@ public class Solution {
 	}
 }
 
-/* dp 풀이
+/* dp 풀이, 0-1 knapsack problem
 import java.io.*;
 import java.util.*;
 
