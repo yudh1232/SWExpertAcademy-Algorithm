@@ -73,3 +73,51 @@ public class Solution {
 		generateSubset(cnt + 1);
 	}
 }
+
+/* dp 풀이
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+	public static void main(String[] args) throws Exception {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st;
+		StringBuilder sb = new StringBuilder();
+		
+		int TC = Integer.parseInt(in.readLine());
+		
+		for (int tc = 1; tc <= TC; tc++) {
+			st = new StringTokenizer(in.readLine());
+			int n = Integer.parseInt(st.nextToken());
+			int l = Integer.parseInt(st.nextToken());
+			
+			int[] calories = new int[n + 1];
+			int[] scores = new int[n + 1];
+			
+			for (int i = 1; i <= n; i++) {
+				st = new StringTokenizer(in.readLine());
+				scores[i] = Integer.parseInt(st.nextToken());
+				calories[i] = Integer.parseInt(st.nextToken());
+			}
+			
+			int[][] dp = new int[n + 1][l + 1];
+			for (int i = 1; i <= n; i++) {
+				for (int cal = 1; cal <= l; cal++) {
+					if (calories[i] <= cal) {
+						dp[i][cal] = Math.max(dp[i - 1][cal], scores[i] + dp[i - 1][cal - calories[i]]);
+					}
+					else {
+						dp[i][cal] = dp[i - 1][cal];
+					}
+				}
+			}
+			
+			sb.append("#").append(tc).append(" ").append(dp[n][l]).append("\n");
+		}
+		
+		System.out.println(sb);
+	}
+	
+}
+*/
